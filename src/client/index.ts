@@ -90,9 +90,9 @@ export function apply(ctx: ClientContext): void {
   const getUserId = (signal?: AbortSignal) =>
     ctx.connection.rpc.call('/dsh-session-identity', 'identity.userId', {}, signal)
 
-  ctx.effect(() => ctx.slots.inject('conversation.session.header.actions', () =>
+  ctx.effect(() => ctx.slots.inject('conversation.session.header.utilities', () =>
     ctx.slots.register({
-      name: 'conversation.session.header.actions',
+      name: 'conversation.session.header.utilities',
       id: 'session-identity-action',
       order: 20,
       inject: () => ({ getUserId }),
